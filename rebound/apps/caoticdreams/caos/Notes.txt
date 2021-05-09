@@ -1,0 +1,48 @@
+• All flow control structures in CAOS! (exhaustive)
+	• SCRP, ENDM
+	• DOIF, ENDI
+	• SUBR, RETN, GSUB
+	• LOOP, UNTL/EVER
+	• ENUM/ESEE/ETCH/EPAS, NEXT
+	• REPS, REPE
+	• INST, SLOW, WAIT (in our system these will be treated like flow controls that change how CAOS code is compiled, but LOCK/UNLK don't need to be)
+
+
+• All L-Values—ie, writable things you can use SETV on (exhaustive)
+	• vaXX
+	• ovXX
+	• mvXX
+	• NAME <>
+	• MAME <>
+	• GAME <>
+	• EAME <>
+	• AVAR <>
+	• _P1_
+	• _P2_
+	• FROM ??
+	• VELX
+	• VELY
+	...TODO :D
+
+
+• All byref "functions" (exhaustive)
+	• SETV
+	• ADDV
+	• ABSV
+	• CHAR
+	...TODO :D
+	
+
+• Not flow control, just normal functions/commands useful for similar things!
+	• CALL
+	• MESG WRIT / MESG WRT+
+	• CAOS
+	• EAMN
+	• GAMN
+	• NAMN
+	• NCLS
+	• PCLS
+	• PNXT
+	• PRAY PREV / PRAY NEXT
+	• PRAY BACK / PRAY FORE
+	...
