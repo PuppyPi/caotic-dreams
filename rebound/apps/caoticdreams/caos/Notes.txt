@@ -1,5 +1,5 @@
 • All flow control structures in CAOS! (exhaustive)
-	• SCRP, ENDM
+	• SCRP, ENDM, RSCR
 	• DOIF, ENDI
 	• SUBR, RETN, GSUB
 	• LOOP, UNTL/EVER
