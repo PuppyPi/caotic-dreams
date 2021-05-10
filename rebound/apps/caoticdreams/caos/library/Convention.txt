@@ -1,0 +1,22 @@
+• Functions
+	<caos-return-type> f(CaosExecutionContext, <caos-parameters>...)
+	• f() has one more parameter in Java than in CAOS (the CaosExecutionContext) but same return value (possibly "void") in Java as in CAOS
+
+
+
+• Variables
+	<any> get(CaosExecutionContext, <caos-parameters>...)
+	void set(CaosExecutionContext, <caos-parameters>..., <any> newValue)
+	
+	+ The two "any"s can be different!
+
+
+
+
+• Naming convention:
+	• CAOS letters → capital letters
+	• ' ' → _
+	• _ → u
+	• + → p
+	• ! → e
+	• : → c

@@ -1,0 +1,3 @@
+It's not really done right and fully separated XD', but the idea is that "Core" applies to CAOS itself and "Content" applies to this particular game (eg, Maps, Sounds, Sprites, Physics, certainly Norns, etc. X3 )
+
+(Again, it would take a good bit of work to make it work for another game XD'', but still it's nice to have Separation of Concerns, right? :3 )

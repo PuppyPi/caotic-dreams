@@ -1,0 +1,40 @@
+I'm not sure all of these are quirks—they might have been in either C3, DS, or both XD'
+
+• Compilation can't handle SLOW mode, only INST mode, so there are some things to deal with that:
+	• INST?/SLOW? directives for optional INST mode: only counts as an INST command if it's compiled and remains SLOW otherwise
+	• Alternate versions of commands which *might* do a SLOW, like PAUO command instead of PAUS
+	• You can just use copious amounts of INST or INST?'s to help the compiler know it's okay to compile the code and won't break anything XD   (some code relies on being interruptible aka SLOW!)
+		+ Particularly put INST/INST? after SUBRs which may be GSUB'ed by possibly-SLOW code (if there's only one GSUB, then the INST-ness knowledge is inherited from that).  This lets the compiler not have to put a Compilation Break on the GSUB, but compile it too!
+	• "<Compile!" / "Compile!>" directives for mandatory compiling (it just makes the engine display a warning if it can't compile that block of code; it still runs it normally as if the directives weren't there)
+	
+	+ Also note that when it's hard (or impossible) to tell if code would be in INST mode the compiler treats it as not INST  (eg, a DOIF put the script in INST mode, so the code after the ENDI can't know it's definitely in INST before the code is run, during compilation!)
+		INST mode still works in the engine in those cases!  It's just that the code will be normal speed (interpreted) not super-fast compiled.
+
+
+• The CAOS command can always compile its scripts, since SLOW is never allowed there :>
+	But since compilation is fairly slow..  XD''
+	We reserve the right to not do that for small scripts XD
+	And to cache the compiled value for large scripts so that when the exact same string is sent (char-for-char exact) then it won't need to recompile, but can *verrrrrry* quickly execute it!  8>
+	We'll add new CAOS commands for dealing with that (like an always-compile and never-compile version and for clearing the cache)
+	+ The compiled code cache (for CAOS command and *everything* compiled!) may not be saved to disk (I'm not sure about that ^^'), since that would mean the saved game file couldn't be read by a newer engine version!
+
+
+• Message passing can now support message queues instead of just overwriting the agent's currently-running script!  :DD
+	TODO: *did* it overwrite/interrupt the currently-running script or did it have message queues?
+
+
+• SETV and other statements in SLOW are interruptible between them like any other statement, but all expressions are uninterruptible!  (Ie, script-interruption can only happen between things listed as "(command)" in the docs, or functions which are used as commands (eg, running "CAOS" and ignoring its return value)
+	• This means blocking/waiting things can't return a return value and expressions can't be SLOW (interruptible)
+		I think this is how the original engine worked and that's why the "CAOS" command mandated working in INST mode, and why CALL doesn't return a return value!  (thankfully for us!)
+
+
+• MESG WRT+ messages that are pending when the game is saved and stopped will be loaded when the game is loaded again :>
+	(idk how the original engine handled that XD )
+
+
+• The directory structure is *totally* different, although the file formats are the same XD
+
+
+
+===Inherited quirks===
+• Non-existent variables default to integer 0, not null

@@ -32,6 +32,8 @@
 	• CHAR
 	...TODO :D
 	
+	+ These are important because they're very special in this system!  To make CAOS compatible with a byval system like Java and our CAOS interpreter, we must convert them (in both interpreted and compiled caos!) to a SETx and some expression (eg, ADDV_(decimal) VAR(decimal) SUM(decimal) so ADDV va00 va01 becomes SETV va00 ADDV_ va00 va01).
+
 
 • Not flow control, just normal functions/commands useful for similar things!
 	• CALL
@@ -46,3 +48,15 @@
 	• PRAY PREV / PRAY NEXT
 	• PRAY BACK / PRAY FORE
 	...
+
+
+
+• Always does an Implicit SLOW and so compilation treats it as a script-break
+	SLOW
+	WAIT
+	OVER
+
+• Compilation treats it as a script-break even though it doesn't always cause a SLOW  (because sometimes it does!)
+	CALL
+	CALT
+	PAUS

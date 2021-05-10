@@ -1,3 +1,12 @@
+Aiko, let's make another github repository for questions about C2E so issues/questions about *our* engine can be in our repo XD''
+	—PP
+
+
+
+
+
+
+
 Puppy> Is it okay if a caos expression executes atomically?
 Like if you have "setv (cati (tint (game (sorc ...)))) ..."
 (that's a contrived terrible example XD' )
@@ -14,7 +23,40 @@ Puppy> You can set/write the _P1_ and _P2_ variables, right?
 
 
 Puppy> Does the tick WAIT is running in count as one of the ticks?  Does the tick it stops waiting on count as one of the ticks?
+What do WAIT 0 and WAIT 1 do?  XD''
 
 
 
 Puppy> Was the angular physics engine ever implemented in C2E? XD   (SPIN/ROTN/AVEL and Rotatable/Presence ATTR flags and Script 8)
+
+
+
+Puppy> What happens when CALL/MESG/etc. uses an event number for which there isn't a script in the scriptorium for that family/genus/species?
+
+
+
+Puppy> If STOP/STPT is called during a CALLed script, does that stop the caller as well, or immediately return it??
+
+
+
+Puppy> The INST state is preserved by pushing it to a stack across CALL's and restoring it when the CALL completes, but what about the LOCK state?
+
+
+
+Puppy> Can PAUS OWNR be done or does that throw an error?
+
+
+
+Puppy> How are remove scripts done in PRAY?  Are they just executed with the "CAOS" dynamic-execution function?
+
+
+
+Puppy> Can you just use a CAOS function that returns a value as if it didn't? XD   (eg, just run the "CAOS" function and discard its return value / pretend it didn't have one)
+
+
+
+Puppy> Is there an instruction to finish the current script?  Like STOP but doesn't obliterate CALLer scripts, like RETN but works for the whole script not just SUBRs, like ENDM but can be anywhere inside a script!
+
+
+
+Puppy> Are there breaks and continues for loops like in most languages?

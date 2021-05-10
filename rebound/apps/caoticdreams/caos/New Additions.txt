@@ -1,0 +1,45 @@
+:D!
+
+
+
+===Backwards compatible!===
+• INST? / SLOW?  directives in comments
+	Like INST/SLOW but only if INST blocks are fast—namely, if INST blocks are compiled, and ignored if compilation isn't done :3
+
+
+
+===Backwards incompatible===
+• CALT - CALl Targ
+	CALL on TARG instead of OWNR! :D
+
+• SETX
+	SETV/SETA/SETS/etc. but doesn't make you know the type ahead of time (finally! XD )
+
+• You can RETN from anywhere you like inside a SUBR! even inside a loop or doif-else or etc.!  :D
+
+• PAUO - PAUs Other
+	PAUS but throws error if given OWNR.  This way it can be used in compiled scripts since it never does an implicit SLOW.
+
+• VA and OV (and MV) above 99!  :DD
+
+• CAOS isn't limited to four letters!  (but we often use that bc it's cute and cultural :33 )
+
+• Sound effects aren't limited to four letters!  (sdlfjsdflkj whyyyyy were they? XD )
+
+• Message queues so MESG/CALT/etc.'ing agents won't abort/interrupt/overwrite the currently-running event script! :'D
+	The MESG WRIT / MESG WRT+ commands still do it the old way by default, for backwards-compatibility, but there are new commands for it :3
+	+ And the message queues are saved to / loaded from disk! :D
+
+• Scheduled tasks (including MESG WRT+ !) that are saved to / loaded from disk! :D
+	+ They work by treating time exclusively as an integer number of ticks :3
+
+• SUBRs that return return values and accept parameters like real functions?! :D
+
+• Expressions for arithmetic! :D
+	• Like ADDV/SUBV but is a function that returns a value instead of being a command!
+	• Ones for boolean things like <> and >=!  This both *fully* alleviates the need for parentheses (since only infix grammars need parentheses and it's MUCH easier to parse a language that doesn't need them!  And CAOS is *almost* a Polish (aka Prefix) Notation language!  And with these now it is fully :>   Also you can use them (booleans!) in normal code not just special "(condition)" commands like DOIF and UNTL! :D )
+
+• Byte Strings a proper values not just for ANIM but can be stored in variables and stuff like text strings! :D
+	• This also opens up a whole world of low-level binary file format parsing in CAOS 8>  XD
+
+• Other datatypes potentially!  —Aiko wants arrays, for one! XD  :D
