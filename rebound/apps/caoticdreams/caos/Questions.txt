@@ -14,3 +14,7 @@ Puppy> You can set/write the _P1_ and _P2_ variables, right?
 
 
 Puppy> Does the tick WAIT is running in count as one of the ticks?  Does the tick it stops waiting on count as one of the ticks?
+
+
+
+Puppy> Was the angular physics engine ever implemented in C2E? XD   (SPIN/ROTN/AVEL and Rotatable/Presence ATTR flags and Script 8)
