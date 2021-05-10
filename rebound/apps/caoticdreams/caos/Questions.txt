@@ -1,0 +1,16 @@
+Puppy> Is it okay if a caos expression executes atomically?
+Like if you have "setv (cati (tint (game (sorc ...)))) ..."
+(that's a contrived terrible example XD' )
+but is it okay for only a single " (command)" to execute atomically, and all the expressions inside it to run like they're in an inst?
+
+
+
+Puppy> Can you set/write the FROM "variable" or is it just a "variable" because it's polymorphically-typed (can be agent or string)?  X3
+
+
+
+Puppy> You can set/write the _P1_ and _P2_ variables, right?
+
+
+
+Puppy> Does the tick WAIT is running in count as one of the ticks?  Does the tick it stops waiting on count as one of the ticks?
