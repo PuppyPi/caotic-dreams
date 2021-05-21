@@ -1,6 +1,7 @@
 package rebound.apps.caoticdreams.engine;
 
 import rebound.apps.caoticdreams.caos.library.content.iEngine;
+import rebound.apps.caoticdreams.engine.content.CDWorld;
 import rebound.apps.caoticdreams.engine.physics.iCDPhysicsEngine;
 
 /**
