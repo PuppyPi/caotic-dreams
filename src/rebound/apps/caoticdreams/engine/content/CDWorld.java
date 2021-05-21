@@ -2,7 +2,6 @@ package rebound.apps.caoticdreams.engine.content;
 
 import java.awt.geom.Rectangle2D;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Set;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -11,6 +10,7 @@ import rebound.apps.caoticdreams.caos.library.content.iWorld;
 import rebound.apps.caoticdreams.engine.AgentVM;
 import rebound.apps.caoticdreams.engine.Scriptorium;
 import rebound.apps.caoticdreams.engine.rendering.Renderable;
+import rebound.apps.caoticdreams.engine.rendering.RenderableWorld;
 import rebound.util.functional.ContinueSignal;
 import rebound.util.functional.FunctionInterfaces.UnaryFunction;
 
@@ -18,7 +18,7 @@ import rebound.util.functional.FunctionInterfaces.UnaryFunction;
  * Everything in here is saved to / loaded from disk :3
  */
 public class CDWorld
-implements iWorld
+implements iWorld, RenderableWorld
 {
 	protected Set<AgentVM> agents = new HashSet<>(100000);
 	protected Scriptorium scriptorium;

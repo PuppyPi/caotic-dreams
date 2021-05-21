@@ -8,17 +8,17 @@ import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import javax.annotation.Nullable;
-import rebound.apps.caoticdreams.engine.content.CDWorld;
 import rebound.apps.caoticdreams.engine.rendering.Camera;
 import rebound.apps.caoticdreams.engine.rendering.CameraViewscreenRenderable;
 import rebound.apps.caoticdreams.engine.rendering.CompoundRenderable;
 import rebound.apps.caoticdreams.engine.rendering.Renderable;
+import rebound.apps.caoticdreams.engine.rendering.RenderableWorld;
 import rebound.apps.caoticdreams.engine.rendering.SpriteRenderable;
 import rebound.util.functional.ContinueSignal;
 
 public class CDRendererForJava2D
 {
-	protected CDWorld world;
+	protected RenderableWorld world;
 	
 	
 	public void render(Graphics2D g, Camera camera, double widthOfScreen, double heightOfScreen)
@@ -108,12 +108,12 @@ public class CDRendererForJava2D
 	
 	
 	
-	public CDWorld getWorld()
+	public RenderableWorld getWorld()
 	{
 		return world;
 	}
 	
-	public void setWorld(CDWorld world)
+	public void setWorld(RenderableWorld world)
 	{
 		this.world = world;
 	}
