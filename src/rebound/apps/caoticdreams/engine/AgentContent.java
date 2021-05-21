@@ -4,6 +4,7 @@ import java.util.Map;
 import rebound.apps.caoticdreams.caos.library.content.iWorldAgentContent;
 import rebound.apps.caoticdreams.caos.library.core.iCoreAgentContent;
 import rebound.apps.caoticdreams.engine.physics.iCDPhysicsableObject;
+import rebound.apps.caoticdreams.engine.rendering.Renderable;
 
 public class AgentContent
 implements iCoreAgentContent, iWorldAgentContent, iCDPhysicsableObject
@@ -19,5 +20,20 @@ implements iCoreAgentContent, iWorldAgentContent, iCDPhysicsableObject
 		this.family = family;
 		this.genus = genus;
 		this.species = species;
+	}
+	
+	
+	
+	public int getZPlane()
+	{
+		
+	}
+	
+	/**
+	 * @return null if it's invisible :3
+	 */
+	public @Nullable Renderable getRenderable()
+	{
+		
 	}
 }
