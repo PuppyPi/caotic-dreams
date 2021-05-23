@@ -1,7 +1,9 @@
 package rebound.apps.caoticdreams.engine;
 
-import java.util.Map;
+import javax.annotation.Nullable;
 import rebound.apps.caoticdreams.caos.library.content.iWorldAgentContent;
+import rebound.apps.caoticdreams.caos.library.core.CaosIndexedVariableBank;
+import rebound.apps.caoticdreams.caos.library.core.CaosNamedVariableBank;
 import rebound.apps.caoticdreams.caos.library.core.iCoreAgentContent;
 import rebound.apps.caoticdreams.engine.physics.iCDPhysicsableObject;
 import rebound.apps.caoticdreams.engine.rendering.Renderable;
@@ -11,8 +13,8 @@ implements iCoreAgentContent, iWorldAgentContent, iCDPhysicsableObject
 {
 	protected final int family, genus, species;
 	
-	protected Object[] objectVariables;  //TODO MAKE SURE TO DEFAULT THEM TO 0(LONG) AND AUTO-EXPAND
-	protected Map<String, Object> nameVariables;  //TODO MAKE SURE TO DEFAULT THEM TO 0(LONG)
+	protected CaosIndexedVariableBank objectVariables = new CaosIndexedVariableBank();
+	protected CaosNamedVariableBank nameVariables = new CaosNamedVariableBank();
 	
 	
 	public AgentContent(int family, int genus, int species)

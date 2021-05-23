@@ -1,6 +1,7 @@
 package rebound.apps.caoticdreams.engine;
 
 import rebound.apps.caoticdreams.caos.library.content.iEngine;
+import rebound.apps.caoticdreams.caos.library.core.CaosNamedVariableBank;
 import rebound.apps.caoticdreams.engine.content.CDWorld;
 import rebound.apps.caoticdreams.engine.physics.iCDPhysicsEngine;
 import rebound.util.functional.ContinueSignal;
@@ -18,6 +19,7 @@ implements iEngine
 {
 	protected iCDPhysicsEngine physicsEngine;
 	protected CDWorld world;
+	protected CaosNamedVariableBank eameVariables = new CaosNamedVariableBank();
 	
 	public void tickPhysics()
 	{

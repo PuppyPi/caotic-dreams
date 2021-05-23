@@ -7,6 +7,12 @@ public interface iEngine
 	 */
 	public String getGameName();
 	
-	public Object getEngineVariable(String name);
-	public void setEngineVariable(String name, Object value);
+	/**
+	 * It's CaoticDreams!  We do everything in CAOS!  ;D
+	 */
+	public void setGameName(String newValue);
+	
+	
+	public Object getEngineVariable(Object name);
+	public void setEngineVariable(Object name, Object value);
 }

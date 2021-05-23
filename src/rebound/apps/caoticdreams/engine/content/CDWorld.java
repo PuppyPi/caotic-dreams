@@ -11,6 +11,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import rebound.annotations.semantic.allowedoperations.ReadonlyValue;
 import rebound.apps.caoticdreams.caos.library.content.iWorld;
+import rebound.apps.caoticdreams.caos.library.core.CaosNamedVariableBank;
 import rebound.apps.caoticdreams.engine.AgentVM;
 import rebound.apps.caoticdreams.engine.Scriptorium;
 import rebound.apps.caoticdreams.engine.mapalgorithms.MapTracker;
@@ -33,6 +34,7 @@ implements iWorld, RenderableWorld, MapAsbPhysicsEngine
 	protected MapTracker<CDMetaroom> metarooms;
 	protected MapTracker<AgentVM> worldAgents;
 	protected Set<AgentVM> worldlessAgents = new HashSet<>();  //always unrendered and unphysicked X3
+	protected CaosNamedVariableBank gameVariables = new CaosNamedVariableBank();
 	
 	protected Scriptorium scriptorium;
 	

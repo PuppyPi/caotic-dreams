@@ -20,6 +20,7 @@
 • You can RETN from anywhere you like inside a SUBR! even inside a loop or doif-else or etc.!  :D
 
 • VA and OV (and MV) above 99!  :DD
+	+ AVAR also supports this :>
 
 • CAOS isn't limited to four letters!  (but we often use that bc it's cute and cultural :33 )
 
@@ -66,7 +67,7 @@
 	Maybe..idk, "AND!" and "OR!" ?  XD
 	(and then what?  "AND!#" and "OR!#" ?  XD )
 
-
+• GAME/EAME support non-string keys like NAME vars do :>
 
 
 
