@@ -20,6 +20,9 @@ public interface iAgentVM
 	 * + Note that the script/event number is looked up immediately and if the scriptorium changes by the time this executes (if the {@link AgentMessageSendingConflictResolutionWaitForCurrent the queue} is used), then the old script—the one it maps to right now—is used, so no messages on the queue silently disappear (this having returned true (script number found) but later script number not being found).
 	 * 		Unless deferredEventNumberLookup is true, in which case if this returns false now nothing is queued, but if this returns true and there's no script for that number later, then the message will be silently discarded
 	 * 
+	 * + Related: https://github.com/Creatures-Developer-Network/c2e-quirks/issues/29
+	 * + Related: https://github.com/Creatures-Developer-Network/c2e-quirks/issues/45
+	 * 
 	 * @return if that eventNumber was found.  if false this does nothing at all (not even call the callback!)
 	 */
 	public boolean message(@Nullable Object from, int eventNumber, boolean deferredEventNumberLookup, boolean inst, boolean lock, @Nonnull Object[] params, @Nullable UnaryProcedure<EventScriptTerminationType> callbackOnCompletion, @Nonnull AgentMessageSendingConflictResolution conflictResolution);
@@ -49,7 +52,7 @@ public interface iAgentVM
 	
 	/**
 	 * This doesn't actually do anything directly XD
-	 * It's up to those who call {@link #message(Object, int, boolean, boolean, Object[], UnaryProcedure, AgentMessageSendingConflictResolution)} to check this and alter their behavior as appropriate!
+	 * It's up to those who call {@link #message(Object, int, boolean, boolean, boolean, Object[], UnaryProcedure, AgentMessageSendingConflictResolution)} to check this and alter their behavior as appropriate!
 	 */
 	public boolean isLOCKed();
 	public void setLOCKed(boolean value);

@@ -44,6 +44,15 @@ implements iWorld, RenderableWorld, MapAsbPhysicsEngine
 	
 	
 	
+	public void getAllAgents(@Nonnull UnaryFunction<AgentVM, ContinueSignal> observeAgent)
+	{
+		for (AgentVM agent : worldlessAgents)
+			if (observeAgent.f(agent) == ContinueSignal.Stop)
+				return;
+		
+		worldAgents.getAllTrackables(observeAgent);
+	}
+	
 	
 	
 	

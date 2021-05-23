@@ -1,5 +1,8 @@
 :D!
 
++ Note: the exact letters/characters used are totally open to discussion, I have no attachment to any particular wording XD'
+
+
 
 
 ===Backwards compatible!===
@@ -11,14 +14,10 @@
 ===Backwards incompatible===
 • CALT - CALl Targ
 	CALL on TARG instead of OWNR! :D
-
-• SETX
-	SETV/SETA/SETS/etc. but doesn't make you know the type ahead of time (finally! XD )
+• CALA v - CALl given Agent
+	CALL on v instead of 
 
 • You can RETN from anywhere you like inside a SUBR! even inside a loop or doif-else or etc.!  :D
-
-• PAUO - PAUs Other
-	PAUS but throws error if given OWNR.  This way it can be used in compiled scripts since it never does an implicit SLOW.
 
 • VA and OV (and MV) above 99!  :DD
 
@@ -43,3 +42,102 @@
 	• This also opens up a whole world of low-level binary file format parsing in CAOS 8>  XD
 
 • Other datatypes potentially!  —Aiko wants arrays, for one! XD  :D
+
+• STPA is like STPT just with explicit agent not TARG (might as well add this now while we're doing it XD')
+• STOPT is like STOP just with TARG not OWNR
+• STOPA is like STOPT just with explicit agent not TARG
+	+ STOPx stops the currently-called script, while STPx stops the whole call stack!
+	+ We add so many (all the combinations!) because they have to be special-cased by the compiler, so it's not easy to just add new ones ^^'
+• STPO is just STOPA OWNR
+
+• LONGV is just a command that does nothing when run, but makes code intentionally backwards-incompatible with platforms providing 32-bit integers/floats, to be used if your code *requires* 64-bit integers/floats like CaoticDreams provides.
+	+ Signed 64-bit integers, to be clear (if we support others, we'd use ULONGV someday, but that's quite inconvenient and complex in Java so I won't worry about it for now since signed 64-bit ints is way more than anyone asked for as it is XD'' )
+
+• NOT#, AND#, OR#, LT#, GE#, etc. (or whatever we call them) work for conditions and use the Polish/Prefix Notation like other functions, so that way you don't need parentheses :3
+	Eg,
+		a AND NOT (b OR c)  →  AND# a  NOT  OR# b c
+		a AND (NOT b) OR c  →  AND# a  OR#  NOT b  c
+		a AND (b = c)  →  AND# a  EQ# b c
+		(a AND b) = c  →  EQ#  AND# a b  c
+	
+	+ This wasn't previously an issue because NOT didn't exist and booleans ("condition" type in the docs) wasn't a First-Class Type you could store in variables and use "=" and "<>" on!
+
+• Short-circuiting boolean AND and OR!  :D
+	Maybe..idk, "AND!" and "OR!" ?  XD
+	(and then what?  "AND!#" and "OR!#" ?  XD )
+
+
+
+
+
+
+
+---Backwards incompatible things we *need* for internal compiler passes and parsing and such!---
+• *Not* GOTO like the original engine needs!  But these are similar to that! :D
+
+
+• STPN is like STPA and STOPN is like STOPA but they can't work on OWNR (they'll throw a caos exception)
+	So here's the transformation :3
+		STPT → STPA TARG
+		STOPT → STOPA TARG
+		STPA v   →  DOIF v = OWNR  STPO  ELSE  STPN v   ENDI
+		STOPA v  →  DOIF v = OWNR  STOP  ELSE  STOPN v  ENDI
+		
+		And STPN and STOPN are just normal commands,
+		While STOP and STPO compile to very special code (including "return" in Java!!)
+		(All of this is important only for compiled INST code)
+
+
+• CALN is like STPN
+	CALT .. → CALA TARG
+	CALA v ..  →  DOIF v = OWNR  CALL ..  ELSE  CALN v ..  ENDI
+		So CALN can be a normal command and not cause a compilation break :3
+
+
+• KILN/KILO is like STPN
+	KILL a  →  DOIF a = OWNR  KILO  ELSE  KILN a  ENDI
+
+
+• ADD#, MUL#, ABS#, etc.
+	Since byref things ("(variable)" in the docs) are only supported by special-casing all caos commands that use them and converting them into one of the SETx's and 
+	ADDV var adden → SETV var ADD# var adden
+	
+	And then SETV is super special, while ADD# is just a normal function :3
+
+
+• RETU
+	Return a value from a function! :D
+	(STOP can be used for return-value-less functions X3 )
+	
+	We need this even without Proper Functions for Soft CAOS, where CAOS is extended with new commands in the softcaos/ directory or whatever X3 :D
+
+
+• NAMEA vars like NAME/MAME but with explicit agent
+	This way the compiler doesn't need to worry about optimizing multiple versions, and we might want it someday anyway so might as well unify the three into one X3
+	NAME k → NAMEA TARG k
+	MAME k → NAMEA OWNR k
+
+
+• SETX and REQV/REQI/REQF/REQS/REQA/etc.
+	SETV/SETA/SETS/etc. but doesn't make you know the type ahead of time (finally! XD )
+	
+	SETV var val  →  REQV val  SETX var val
+	SETS var val  →  REQS val  SETX var val
+	
+	And we might as well add SETI/REQI for ints, SETF/REQF for floats, and REQC for conditions (booleans) (or should we call it REQB?)  :>
+	
+	+ Adding REQ's helps with the type-inference optimization of the compiler (which isn't implemented yet XD'' )
+
+
+
+
+
+--- Big future XD ---
+• Real proper functions!! :DD
+	+ Including Always Compiled functions, so you can invoke global functions (that might be unloaded/loaded in the scriptorium!) without causing a compilation break!! :DD
+	+ And local functions which the compiler can super-optimize and be super-fast since they can't change :3
+		+ That'd be a quirk, like if you define a function as Global in the same .cos file that uses it, then it gets changed, that cos file's uses of it would change like any other code
+			But if it was a local function, well..you *can't* unload/change it! XD   So it can be part of the scripts in the same file as it.  For example it can be Inlined (as we say :3 ) into the functions that invoke it (eg, if the local function was just a few lines of code, it might copy that directly into the caller, replacing the code "invoke this function" with the actual function's code! XD   that's a common thing for compilers to do :3 )
+
+• Real proper data types!! :DD
+	+ Because using entire Agents and Hash Maps for everything (NAME/MAME variables) is *not high performance* XD

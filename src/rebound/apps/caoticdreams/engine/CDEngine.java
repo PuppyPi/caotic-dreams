@@ -3,6 +3,8 @@ package rebound.apps.caoticdreams.engine;
 import rebound.apps.caoticdreams.caos.library.content.iEngine;
 import rebound.apps.caoticdreams.engine.content.CDWorld;
 import rebound.apps.caoticdreams.engine.physics.iCDPhysicsEngine;
+import rebound.util.functional.ContinueSignal;
+
 
 /**
  * The Engine is to the World kind of like the AgentVM is to the AgentContent :3
@@ -19,14 +21,20 @@ implements iEngine
 	
 	public void tickPhysics()
 	{
-		for (AgentVM agent : world.getAgents())
+		world.getAllAgents(agent ->
+		{
 			physicsEngine.tickObject(agent.getContent());
+			return ContinueSignal.Continue;
+		});
 	}
 	
 	public void tickAgentVMs()
 	{
-		for (AgentVM agent : world.getAgents())
+		world.getAllAgents(agent ->
+		{
 			agent.tickCaos();
+			return ContinueSignal.Continue;
+		});
 	}
 	
 	
@@ -35,6 +43,7 @@ implements iEngine
 	public void handleErrorInAgentEventScript(AgentVM agent, Throwable t)
 	{
 		//TODO pop up the GUI or something :3
+		t.printStackTrace();
 	}
 	
 	

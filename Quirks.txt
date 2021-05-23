@@ -2,13 +2,15 @@ I'm not sure all of these are quirks—they might have been in either C3, DS, or
 
 • Compilation can't handle SLOW mode, only INST mode, so there are some things to deal with that:
 	• INST?/SLOW? directives for optional INST mode: only counts as an INST command if it's compiled and remains SLOW otherwise
-	• Alternate versions of commands which *might* do a SLOW, like PAUO command instead of PAUS
+	• Alternate versions of commands which *might* do a SLOW, like STPN instead of STPT, CALN(new) instead of CALA(new), etc.
 	• You can just use copious amounts of INST or INST?'s to help the compiler know it's okay to compile the code and won't break anything XD   (some code relies on being interruptible aka SLOW!)
 		+ Particularly put INST/INST? after SUBRs which may be GSUB'ed by possibly-SLOW code (if there's only one GSUB, then the INST-ness knowledge is inherited from that).  This lets the compiler not have to put a Compilation Break on the GSUB, but compile it too!
 	• "<Compile!" / "Compile!>" directives for mandatory compiling (it just makes the engine display a warning if it can't compile that block of code; it still runs it normally as if the directives weren't there)
 	
 	+ Also note that when it's hard (or impossible) to tell if code would be in INST mode the compiler treats it as not INST  (eg, a DOIF put the script in INST mode, so the code after the ENDI can't know it's definitely in INST before the code is run, during compilation!)
 		INST mode still works in the engine in those cases!  It's just that the code will be normal speed (interpreted) not super-fast compiled.
+	
+	• STOP, STPT, STPA(new) do *not* cause a compilation break (because if they stop the OWNR, then they just do a "return" in Java basically XD )
 
 
 • The CAOS command can always compile its scripts, since SLOW is never allowed there :>
@@ -34,6 +36,16 @@ I'm not sure all of these are quirks—they might have been in either C3, DS, or
 
 • The directory structure is *totally* different, although the file formats are the same XD
 
+
+• [Tentative] Numeric bounds are increased!
+	@ I'm waiting for other people to decide if they want to do this or if it would break backwards-compatibility!
+	+ See https://github.com/Creatures-Developer-Network/c2e-quirks/issues/38
+	+ So wrapping doesn't happen!  We've just decided that "portable" CAOS code doesn't rely on any particular overflow behavior (exactly like "portable" C code!  ..except in C you can specify bounds, while you can't in caos ^^' )
+		+ This is a proposal written like it's the future: we haven't decided this yet XD'
+
+
+• In the original engine, some commands could be executed after TARG OWNR  PAUS 1  but in CaoticDreams, it pauses itself instantly XD
+	See https://github.com/Creatures-Developer-Network/c2e-quirks/issues/32
 
 
 ===Inherited quirks===

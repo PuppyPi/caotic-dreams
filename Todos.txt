@@ -1,0 +1,9 @@
+• Support Language Compatibility Levels where parsing and running/compiling CAOS *refuses* to work unless your CAOS is portable (ie, runs on all the engines)
+
+
+• Type Inference!: Support typing variables as something other than always java.lang.Object XD''
+	Examine the code and determine what could be used :33
+
+
+• Support compiler analysis of variables (eg, ovXX, NAME, EAME, etc.) so that it doesn't hammer hash maps over and over when it could just load the NAME/etc. variable into a local variable and use that for like 1000 read/writes and *then* store it into the NAME/etc. var at the end (which is insanely faster)  XD
+	+ Doing this pass before the type inference analysis pass means this doesn't have to support worrying about types, and the duck typing analyzer doesn't have to worry about non-local variables! :D

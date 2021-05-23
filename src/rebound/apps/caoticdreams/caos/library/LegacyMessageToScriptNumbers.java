@@ -4,7 +4,11 @@ public class LegacyMessageToScriptNumbers
 {
 	public static int getScriptNumberForMessageNumber(int mesgNumber)
 	{
-		//TODO :>
-		//This is a nice well-contained thing for someone else to do XD ^w^
+		// https://github.com/Creatures-Developer-Network/c2e-quirks/issues/51
+		
+		if (mesgNumber >= 0 && mesgNumber <= 2)
+			return (mesgNumber + 1) % 3;   // I did a fanceh ;D
+		else
+			return mesgNumber;
 	}
 }

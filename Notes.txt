@@ -1,14 +1,22 @@
 • All flow control structures in CAOS! (exhaustive)
-	• SCRP, ENDM, RSCR
-	• DOIF, ENDI
+	https://github.com/Creatures-Developer-Network/c2e-quirks/issues/53
+	• SCRP, RSCR, ISCR, ENDM
+	• DOIF, ELIF, ELSE, ENDI
 	• SUBR, RETN, GSUB
 	• LOOP, UNTL/EVER
-	• ENUM/ESEE/ETCH/EPAS, NEXT
+	• ENUM/ESEE/ETCH/EPAS/ECON, NEXT
 	• REPS, REPE
+
+• All things which can break out of INST mode
+	https://github.com/Creatures-Developer-Network/c2e-quirks/issues/52
 	• INST, SLOW, WAIT (in our system these will be treated like flow controls that change how CAOS code is compiled, but LOCK/UNLK don't need to be)
+	• OVER
+	• TOUC
+	• STOP, STPT
 
 
 • All L-Values—ie, writable things you can use SETV on (exhaustive)
+	https://github.com/Creatures-Developer-Network/c2e-quirks/issues/54
 	• vaXX
 	• ovXX
 	• mvXX
@@ -19,25 +27,72 @@
 	• AVAR <>
 	• _P1_
 	• _P2_
-	• FROM ??
+	• FROM
 	• VELX
 	• VELY
-	...TODO :D
 
 
 • All byref "functions" (exhaustive)
+	https://github.com/Creatures-Developer-Network/c2e-quirks/issues/55
 	• SETV
-	• ADDV
+	• SETS
+	• SETA
+	
 	• ABSV
+	• ADDS
+	• ADDV
+	• ANDV
 	• CHAR
-	...TODO :D
+	• DIVV
+	• MODV
+	• MULV
+	• NEGV
+	• NOTV
+	• ORRV
+	• SUBV
+	
+	• CAOS
+	• NET: RUSO
+	• NET: STAT
+	• NET: UNIK
+	• NET: MAKE
+	• PRAY INJT
+	• PRAY MAKE
+	
+	• NAMN
 	
 	+ These are important because they're very special in this system!  To make CAOS compatible with a byval system like Java and our CAOS interpreter, we must convert them (in both interpreted and compiled caos!) to a SETx and some expression (eg, ADDV_(decimal) VAR(decimal) SUM(decimal) so ADDV va00 va01 becomes SETV va00 ADDV_ va00 va01).
+		+ Youch!  I might just add a (slower) extension system for byref things for those last block since networking and pray aren't core language features XD'
+
+
+
+• Can do an Implicit SLOW and so compilation treats it as a script-break
+	https://github.com/Creatures-Developer-Network/c2e-quirks/issues/56
+	• SLOW
+	• CALL
+	
+	• WAIT
+	• OVER
+	• TOUC
+	• NET: RUSO
+	• NET: STAT
+	• NET: WHON
+	
+	• CALT, CALA
+
+
+
+
+
+
+
 
 
 • Not flow control, just normal functions/commands useful for similar things!
 	• CALL
 	• MESG WRIT / MESG WRT+
+	• PAUS
+	• KILL
 	• CAOS
 	• EAMN
 	• GAMN
@@ -48,15 +103,3 @@
 	• PRAY PREV / PRAY NEXT
 	• PRAY BACK / PRAY FORE
 	...
-
-
-
-• Always does an Implicit SLOW and so compilation treats it as a script-break
-	SLOW
-	WAIT
-	OVER
-
-• Compilation treats it as a script-break even though it doesn't always cause a SLOW  (because sometimes it does!)
-	CALL
-	CALT
-	PAUS
