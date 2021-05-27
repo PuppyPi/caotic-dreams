@@ -3,5 +3,10 @@
 	0-9
 
 
+• It probably shouldn't start with any of eEdD and be followed entirely by "+", "-", and 0-9 because then it could be part of an extended floating point literal which we might support someday!
+	See https://github.com/Creatures-Developer-Network/c2e-quirks/issues/47
+	See https://github.com/PuppyPi/caotic-dreams/issues/8
+
+
 • [Tentative] Conventionally, we use "#" for expression-ified versions of byref commands? :>
 	Eg, ADDV → ADD#, MULV → MUL#
