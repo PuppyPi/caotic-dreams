@@ -1,5 +1,6 @@
 package rebound.apps.caoticdreams.caos.parser.scanner.general;
 
+import rebound.text.UCS4CodePoint;
 import rebound.util.collections.prim.PrimitiveCollections.ImmutableByteArrayList;
 
 public interface GeneralCAOSTokenMeaning
@@ -8,10 +9,10 @@ public interface GeneralCAOSTokenMeaning
 	implements GeneralCAOSTokenMeaning
 	{
 		/**
-		 * A word of code (usually but in this system, not necessarily! four letters, and can definitely contain at least underscores, colons, and plusses!)
+		 * A word of code (usually but in this system, not necessarily! four letters), and can definitely contain at least underscores, colons, and plusses!
 		 * 
 		 * Functions (eg, CARR)
-		 * Procedures (eg, DROP)
+		 * Procedures aka Commands (eg, DROP)
 		 * Subtoken (eg, NEW: and COMP)
 		 * Flow control (eg, DOIF, ENUM, SUBR, SCRP, ENDM, etc.)
 		 * Local variables (vaXX)
@@ -30,6 +31,10 @@ public interface GeneralCAOSTokenMeaning
 		OperatorLE,
 		OperatorGT,
 		OperatorGE,
+		OperatorAND,
+		OperatorOR,
+		OperatorANDShortCircuiting,
+		OperatorORShortCircuiting,
 	}
 	
 	
@@ -48,7 +53,7 @@ public interface GeneralCAOSTokenMeaning
 			
 			
 			/**
-			 * {@link GeneralCAOSTokenMeaningLiteral#getLiteralValue()} is a {@link Character} :3
+			 * {@link GeneralCAOSTokenMeaningLiteral#getLiteralValue()} is a {@link UCS4CodePoint} :3
 			 */
 			LiteralChar,
 			
