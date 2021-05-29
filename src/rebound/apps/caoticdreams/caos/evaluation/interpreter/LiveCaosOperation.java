@@ -2,12 +2,12 @@ package rebound.apps.caoticdreams.caos.evaluation.interpreter;
 
 import rebound.apps.caoticdreams.caos.evaluation.CaosExecutionContext;
 
-public abstract class CaosOperation
-extends CaosStatement
+public abstract class LiveCaosOperation
+extends LiveCaosStatement
 {
-	protected CaosStatement next;
+	protected LiveCaosStatement next;
 	
-	public CaosOperation(int positionInSourceCode, int lengthInSourceCode)
+	public LiveCaosOperation(int positionInSourceCode, int lengthInSourceCode)
 	{
 		super(positionInSourceCode, lengthInSourceCode);
 	}
@@ -18,12 +18,12 @@ extends CaosStatement
 	
 	
 	
-	public CaosStatement getNext()
+	public LiveCaosStatement getNext()
 	{
 		return next;
 	}
 	
-	public void setNext(CaosStatement next)
+	public void setNext(LiveCaosStatement next)
 	{
 		this.next = next;
 	}

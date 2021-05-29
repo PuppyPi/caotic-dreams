@@ -6,7 +6,7 @@ import rebound.apps.caoticdreams.caos.evaluation.CaosRuntimeException;
 /**
  * aka L-Value expression
  */
-public abstract class CaosReceiverExpression
+public abstract class LiveCaosReceiverExpression
 {
 	public abstract void set(CaosExecutionContext context, Object value) throws CaosRuntimeException;
 }

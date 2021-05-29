@@ -2,33 +2,33 @@ package rebound.apps.caoticdreams.caos.evaluation.interpreter;
 
 import rebound.apps.caoticdreams.caos.evaluation.CaosExecutionContext;
 
-public class CaosSetOperation
-extends CaosOperation
+public class LiveCaosSetOperation
+extends LiveCaosOperation
 {
-	protected CaosReceiverExpression receiverExpression;
-	protected CaosExpression providerExpression;
+	protected LiveCaosReceiverExpression receiverExpression;
+	protected LiveCaosExpression providerExpression;
 	
-	public CaosSetOperation(int positionInSourceCode, int lengthInSourceCode)
+	public LiveCaosSetOperation(int positionInSourceCode, int lengthInSourceCode)
 	{
 		super(positionInSourceCode, lengthInSourceCode);
 	}
 	
-	public CaosReceiverExpression getReceiverExpression()
+	public LiveCaosReceiverExpression getReceiverExpression()
 	{
 		return receiverExpression;
 	}
 	
-	public void setReceiverExpression(CaosReceiverExpression receiverExpression)
+	public void setReceiverExpression(LiveCaosReceiverExpression receiverExpression)
 	{
 		this.receiverExpression = receiverExpression;
 	}
 	
-	public CaosExpression getProviderExpression()
+	public LiveCaosExpression getProviderExpression()
 	{
 		return providerExpression;
 	}
 	
-	public void setProviderExpression(CaosExpression providerExpression)
+	public void setProviderExpression(LiveCaosExpression providerExpression)
 	{
 		this.providerExpression = providerExpression;
 	}

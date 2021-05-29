@@ -1,11 +1,11 @@
 package rebound.apps.caoticdreams.caos.evaluation.interpreter;
 
-public abstract class CaosStatement
+public abstract class LiveCaosStatement
 {
 	protected final int positionInSourceCode;
 	protected final int lengthInSourceCode;
 	
-	public CaosStatement(int positionInSourceCode, int lengthInSourceCode)
+	public LiveCaosStatement(int positionInSourceCode, int lengthInSourceCode)
 	{
 		this.positionInSourceCode = positionInSourceCode;
 		this.lengthInSourceCode = lengthInSourceCode;

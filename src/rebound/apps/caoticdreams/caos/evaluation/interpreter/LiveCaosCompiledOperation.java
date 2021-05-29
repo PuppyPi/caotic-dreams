@@ -3,12 +3,12 @@ package rebound.apps.caoticdreams.caos.evaluation.interpreter;
 import rebound.apps.caoticdreams.caos.evaluation.CaosExecutionContext;
 import rebound.util.functional.FunctionInterfaces.UnaryProcedure;
 
-public class CaosCompiledOperation
-extends CaosOperation
+public class LiveCaosCompiledOperation
+extends LiveCaosOperation
 {
 	protected UnaryProcedure<CaosExecutionContext> operation;
 	
-	public CaosCompiledOperation(int positionInSourceCode, int lengthInSourceCode)
+	public LiveCaosCompiledOperation(int positionInSourceCode, int lengthInSourceCode)
 	{
 		super(positionInSourceCode, lengthInSourceCode);
 	}

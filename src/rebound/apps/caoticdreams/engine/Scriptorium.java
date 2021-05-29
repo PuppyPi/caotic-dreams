@@ -1,11 +1,11 @@
 package rebound.apps.caoticdreams.engine;
 
 import javax.annotation.Nullable;
-import rebound.apps.caoticdreams.caos.evaluation.interpreter.CaosStatement;
+import rebound.apps.caoticdreams.caos.evaluation.interpreter.LiveCaosStatement;
 
 public class Scriptorium
 {
-	public @Nullable CaosStatement getFirstStatementInScriptOrNullIfNone(AgentContent content, int eventNumber)
+	public @Nullable LiveCaosStatement getFirstStatementInScriptOrNullIfNone(AgentContent content, int eventNumber)
 	{
 		
 	}

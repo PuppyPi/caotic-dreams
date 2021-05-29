@@ -8,9 +8,9 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import rebound.annotations.semantic.operationspecification.IdentityHashableType;
 import rebound.apps.caoticdreams.caos.evaluation.CaosExecutionContext;
-import rebound.apps.caoticdreams.caos.evaluation.interpreter.CaosBranch;
-import rebound.apps.caoticdreams.caos.evaluation.interpreter.CaosOperation;
-import rebound.apps.caoticdreams.caos.evaluation.interpreter.CaosStatement;
+import rebound.apps.caoticdreams.caos.evaluation.interpreter.LiveCaosBranch;
+import rebound.apps.caoticdreams.caos.evaluation.interpreter.LiveCaosOperation;
+import rebound.apps.caoticdreams.caos.evaluation.interpreter.LiveCaosStatement;
 import rebound.apps.caoticdreams.caos.evaluation.interpreter.util.SimpleCaosExecutionContext;
 import rebound.apps.caoticdreams.caos.library.core.AgentMessageSendingConflictResolution;
 import rebound.apps.caoticdreams.caos.library.core.AgentMessageSendingConflictResolution.AgentMessageSendingConflictResolutionInterruptAndPushCurrent;
@@ -136,11 +136,11 @@ implements iAgentVM
 					if (!first && !currentExecutionState.currentEventScriptContext.isINST())
 						break;
 					
-					CaosStatement s = currentExecutionState.nextStatementInCurrentScript;
+					LiveCaosStatement s = currentExecutionState.nextStatementInCurrentScript;
 					
-					if (s instanceof CaosBranch)
+					if (s instanceof LiveCaosBranch)
 					{
-						CaosBranch b = (CaosBranch) s;
+						LiveCaosBranch b = (LiveCaosBranch) s;
 						
 						boolean condition = (Boolean)b.getCondition().evaluate(currentExecutionState.currentEventScriptContext);
 						
@@ -148,7 +148,7 @@ implements iAgentVM
 					}
 					else
 					{
-						CaosOperation o = (CaosOperation) s;
+						LiveCaosOperation o = (LiveCaosOperation) s;
 						
 						o.run(currentExecutionState.currentEventScriptContext);
 						
@@ -240,7 +240,7 @@ implements iAgentVM
 		requireNonNull(params);
 		requireNonNull(conflictResolution);
 		
-		CaosStatement first = engine.getWorld().getScriptorium().getFirstStatementInScriptOrNullIfNone(content, eventNumber);
+		LiveCaosStatement first = engine.getWorld().getScriptorium().getFirstStatementInScriptOrNullIfNone(content, eventNumber);
 		
 		if (first != null)
 		{
@@ -254,7 +254,7 @@ implements iAgentVM
 	/*
 	 * Like message() but don't look up the event number, let it be overridden >:3
 	 */
-	public void _message(Object from, int eventNumber, boolean deferredEventNumberLookup, CaosStatement first, boolean inst, boolean lock, Object[] params, UnaryProcedure<EventScriptTerminationType> callbackOnCompletion, @Nonnull AgentMessageSendingConflictResolution conflictResolution)
+	public void _message(Object from, int eventNumber, boolean deferredEventNumberLookup, LiveCaosStatement first, boolean inst, boolean lock, Object[] params, UnaryProcedure<EventScriptTerminationType> callbackOnCompletion, @Nonnull AgentMessageSendingConflictResolution conflictResolution)
 	{
 		if (first == null)
 			first = engine.getWorld().getScriptorium().getFirstStatementInScriptOrNullIfNone(content, eventNumber);
@@ -361,7 +361,7 @@ implements iAgentVM
 		protected CaosExecutionContext currentEventScriptContext;
 		protected int currentEventScript;
 		protected @Nullable AgentVMWaitState waitState;
-		protected @Nullable CaosStatement nextStatementInCurrentScript;
+		protected @Nullable LiveCaosStatement nextStatementInCurrentScript;
 		protected @Nullable UnaryProcedure<EventScriptTerminationType> callbackOnCompletion;
 	}
 	
@@ -369,13 +369,13 @@ implements iAgentVM
 	{
 		Object from;
 		int eventNumber;
-		@Nullable CaosStatement first;  //null for deferredEventNumberLookup
+		@Nullable LiveCaosStatement first;  //null for deferredEventNumberLookup
 		boolean inst;
 		boolean lock;
 		Object[] params;
 		UnaryProcedure<EventScriptTerminationType> callbackOnCompletion;
 		
-		public AgentMessage(Object from, int eventNumber, CaosStatement first, boolean inst, boolean lock, Object[] params, UnaryProcedure<EventScriptTerminationType> callbackOnCompletion)
+		public AgentMessage(Object from, int eventNumber, LiveCaosStatement first, boolean inst, boolean lock, Object[] params, UnaryProcedure<EventScriptTerminationType> callbackOnCompletion)
 		{
 			this.from = from;
 			this.eventNumber = eventNumber;

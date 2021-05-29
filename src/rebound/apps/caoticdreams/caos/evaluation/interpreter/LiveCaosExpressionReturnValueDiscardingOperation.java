@@ -2,22 +2,22 @@ package rebound.apps.caoticdreams.caos.evaluation.interpreter;
 
 import rebound.apps.caoticdreams.caos.evaluation.CaosExecutionContext;
 
-public class CaosExpressionReturnValueDiscardingOperation
-extends CaosOperation
+public class LiveCaosExpressionReturnValueDiscardingOperation
+extends LiveCaosOperation
 {
-	protected CaosExpression expression;
+	protected LiveCaosExpression expression;
 	
-	public CaosExpressionReturnValueDiscardingOperation(int positionInSourceCode, int lengthInSourceCode)
+	public LiveCaosExpressionReturnValueDiscardingOperation(int positionInSourceCode, int lengthInSourceCode)
 	{
 		super(positionInSourceCode, lengthInSourceCode);
 	}
 	
-	public CaosExpression getExpression()
+	public LiveCaosExpression getExpression()
 	{
 		return expression;
 	}
 	
-	public void setExpression(CaosExpression expression)
+	public void setExpression(LiveCaosExpression expression)
 	{
 		this.expression = expression;
 	}
