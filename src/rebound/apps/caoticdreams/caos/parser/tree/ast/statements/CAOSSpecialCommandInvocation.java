@@ -14,7 +14,7 @@ extends CAOSStatement
 	
 	public static enum CAOSSpecialCommand
 	{
-		GSUB,
+		GSUB,  //One parameter, CAOSLiteral string for the label :3
 		
 		CCMDorDCMD,  //first parameter is always a CAOSLiteral string for CCMD X3
 		PCMDorACMD,  //first parameter is always a CAOSLiteral string for PCMD X3
