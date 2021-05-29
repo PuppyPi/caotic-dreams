@@ -1,6 +1,5 @@
 package rebound.apps.caoticdreams.caos.parser.scanner.general;
 
-import rebound.text.UCS4CodePoint;
 import rebound.util.collections.prim.PrimitiveCollections.ImmutableByteArrayList;
 
 public interface GeneralCAOSTokenMeaning
