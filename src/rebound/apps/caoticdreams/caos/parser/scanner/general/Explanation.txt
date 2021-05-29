@@ -1,0 +1,4 @@
+This is the next step after minimalist parsing of BasicestCAOSParser X3
+
+The output of this is what you expect from a normal scanner-parser X3
+ And is the input to the grammar-parser CAOSGrammarParser that creates the AbstractSyntaxTree! :D

@@ -37,7 +37,7 @@ public class GeneralCAOSParser
 			BasicCaosTokenType bt = basicallyParsed.getTokenType();
 			
 			if (bt == BasicCaosTokenType.CharLiteral)
-				return listof(new DecoratorFlatlyTypedWherefulToken(basicallyParsed, new GeneralCAOSTokenMeaningLiteral(GeneralCAOSTokenMeaningLiteralType.LiteralChar, decodeCharLiteral(basicallyParsed.getMaskedSourceSlice()))));
+				return listof(new DecoratorFlatlyTypedWherefulToken(basicallyParsed, new GeneralCAOSTokenMeaningLiteral(GeneralCAOSTokenMeaningLiteralType.LiteralChar, (long)decodeCharLiteral(basicallyParsed.getMaskedSourceSlice()).getCodeUnit())));
 			
 			else if (bt == BasicCaosTokenType.StringLiteral)
 				return listof(new DecoratorFlatlyTypedWherefulToken(basicallyParsed, new GeneralCAOSTokenMeaningLiteral(GeneralCAOSTokenMeaningLiteralType.LiteralString, decodeStringLiteral(basicallyParsed.getMaskedSourceSlice()))));

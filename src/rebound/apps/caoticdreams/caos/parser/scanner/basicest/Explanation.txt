@@ -1,0 +1,14 @@
+This is the minimalist possible level possible of caos parsing XD
+
+It never fails! XD
+That is, it doesn't validate the code correctness at *all* XD'
+
+But it parses it to a level at which you don't have to worry about a character (eg, asterisk meaning comment) being in a string literal and thus not actually meaning what you think it does!
+Everything not in one of the categories (some (but not all!) literals, and comments) is lumped into "code" X3
+
+This is what I call a "flat and complete" parser, meaning the token types have no tree structural data, and it simply "colors" each character (codepoint) with one of the token type "colors" of BasicCaosTokenType X3
+
+The output of this is fed to GeneralCAOSParser to finish scanning-parsing into tokens :3
+
+
+This could easily be useful for much more than the CaoticDreams engine!  It could (todo: will!) be used for Jagent's CAOS2PRAY parsing (to finally make it super proper XD)!  :D

@@ -35,6 +35,13 @@ public interface GeneralCAOSTokenMeaning
 		OperatorOR,
 		OperatorANDShortCircuiting,
 		OperatorORShortCircuiting,
+		;
+		
+		
+		public boolean isOperator()
+		{
+			return this != CodeToken && this != Comment && this != Whitespace;
+		}
 	}
 	
 	
@@ -53,7 +60,7 @@ public interface GeneralCAOSTokenMeaning
 			
 			
 			/**
-			 * {@link GeneralCAOSTokenMeaningLiteral#getLiteralValue()} is a {@link UCS4CodePoint} :3
+			 * {@link GeneralCAOSTokenMeaningLiteral#getLiteralValue()} is a {@link Long} :3
 			 */
 			LiteralChar,
 			
