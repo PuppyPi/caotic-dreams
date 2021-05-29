@@ -15,4 +15,7 @@ extends iCoreAgentContent, iCDPhysicsableObject
 	 * For OVER
 	 */
 	public boolean isCurrentlyAnimating();
+	
+	public int getZPlane();
+	public int setZPlane(int plne);
 }

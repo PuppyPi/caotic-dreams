@@ -9,6 +9,7 @@ public interface iWorld
 	 * WUID
 	 */
 	public String getWorldUID();
+	public void setWorldUID(String value);
 	
 	public Object getGameVariable(Object key);
 	public void setGameVariable(Object key, Object value);

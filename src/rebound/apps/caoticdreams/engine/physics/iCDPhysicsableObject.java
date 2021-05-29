@@ -2,6 +2,7 @@ package rebound.apps.caoticdreams.engine.physics;
 
 import java.util.List;
 import javax.annotation.Nullable;
+import rebound.apps.caoticdreams.caos.library.content.iWorldAgentContent;
 import rebound.math.geom2d.ImmutableLineSegment2D;
 
 public interface iCDPhysicsableObject
@@ -22,6 +23,10 @@ public interface iCDPhysicsableObject
 	
 	/**
 	 * Agents with lower perm can pass through borders with higher perm.
+	 * 
+	 * (Not to be confused with {@link iWorldAgentContent#getZPlane() plane})
+	 *  (or Verm)
+	 *   (XD)
 	 */
 	public int getPermeability();
 	
@@ -39,6 +44,9 @@ public interface iCDPhysicsableObject
 	public @Nullable iCDPhysicsableObject getFloatRelativeTo();
 	
 	
+	/**
+	 * Opaque stuff that only the physics engine know what is :3
+	 */
 	public Object getPhysicsEngineStuff();
 	public void setPhysicsEngineStuff(Object value);
 }

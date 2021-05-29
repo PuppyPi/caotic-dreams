@@ -7,4 +7,7 @@ public interface iCoreAgentContent
 	
 	public Object getNameVariable(Object key);
 	public void setNameVariable(Object key, Object value);
+	
+	public long getUNID();
+	public void setUNID(long uuid);
 }
