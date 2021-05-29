@@ -2,9 +2,9 @@ package rebound.apps.caoticdreams.engine.physics.impls.local;
 
 import rebound.annotations.semantic.operationspecification.IdentityHashableType;
 import rebound.apps.caoticdreams.engine.physics.MapAsbPhysicsEngine;
+import rebound.apps.caoticdreams.engine.physics.MapAsbPhysicsEngine.CollidableRegionAsbPhysicsEngine;
 import rebound.apps.caoticdreams.engine.physics.iCDPhysicsEngine;
 import rebound.apps.caoticdreams.engine.physics.iCDPhysicsableObject;
-import rebound.apps.caoticdreams.engine.physics.MapAsbPhysicsEngine.CollidableRegionAsbPhysicsEngine;
 
 public class LocalOnlyCDPhysicsEngine
 implements iCDPhysicsEngine
