@@ -12,6 +12,8 @@ import rebound.text.lexing.apis.tokenstream.flat.util.FlatlyTypedTokenForOnlyOri
 import rebound.text.lexing.apis.tokenstream.util.TokenStreamTestingUtilities;
 import rebound.text.lexing.apis.tokenstream.util.TokenStreamUtilities;
 
+//TODO Test this with rebound.jagent.lib.caos2pray.scanner.CosParser!  :D
+
 public class BasicestCAOSParser
 {
 	protected static enum LeState
