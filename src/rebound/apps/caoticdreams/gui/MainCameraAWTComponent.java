@@ -1,6 +1,5 @@
 package rebound.apps.caoticdreams.gui;
 
-import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -18,13 +17,7 @@ extends Component
 	@Override
 	public void paint(Graphics g)
 	{
-		int w = this.getWidth();
-		int h = this.getHeight();
-		
-		g.setColor(Color.black);
-		g.fillRect(0, 0, w, h);
-		
-		renderer.render((Graphics2D)g, camera, w, h);
+		renderer.renderWithBlackBackground((Graphics2D)g, camera, this.getWidth(), this.getHeight());
 	}
 	
 	

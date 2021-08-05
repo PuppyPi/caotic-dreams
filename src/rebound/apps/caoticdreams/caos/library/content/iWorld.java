@@ -2,14 +2,21 @@ package rebound.apps.caoticdreams.caos.library.content;
 
 import rebound.apps.caoticdreams.caos.library.core.AgentMessageSendingConflictResolution;
 import rebound.apps.caoticdreams.caos.library.core.AgentMessageSendingConflictResolution.AgentMessageSendingConflictResolutionOverwriteEntirety;
+import rebound.exceptions.AlreadyExistsException;
 
 public interface iWorld
 {
 	/**
-	 * WUID
+	 * Caos:WUID
 	 */
 	public String getWorldUID();
-	public void setWorldUID(String value);
+	
+	/**
+	 * @throws AlreadyExistsException if that wuid is already taken by another world!
+	 */
+	public void setWorldUID(String value) throws AlreadyExistsException;
+	
+	
 	
 	public Object getGameVariable(Object key);
 	public void setGameVariable(Object key, Object value);
@@ -21,4 +28,11 @@ public interface iWorld
 	
 	
 	public void scheduleTask(int delayInTicks, PersistableTask task);
+	
+	
+	
+	/**
+	 * @throws Throwable if anything is thrown, effectively nothing is done on disk and it fails cleanly :3
+	 */
+	public void save() throws Throwable;
 }

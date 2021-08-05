@@ -27,6 +27,7 @@ public class AgentVM
 implements iAgentVM
 {
 	protected final CDEngine engine;
+	protected final CDWorld world;
 	protected final AgentContent content;
 	
 	protected @Nullable AgentVMExecutionState currentExecutionState;
@@ -39,9 +40,10 @@ implements iAgentVM
 	protected boolean locked;
 	
 	
-	public AgentVM(CDEngine engine, AgentContent content)
+	public AgentVM(CDEngine engine, CDWorld world, AgentContent content)
 	{
 		this.engine = engine;
+		this.world = world;
 		this.content = content;
 	}
 	
@@ -57,7 +59,7 @@ implements iAgentVM
 	
 	public CDWorld getWorld()
 	{
-		return engine.getWorld();
+		return world;
 	}
 	
 	
@@ -240,7 +242,7 @@ implements iAgentVM
 		requireNonNull(params);
 		requireNonNull(conflictResolution);
 		
-		LiveCaosStatement first = engine.getWorld().getScriptorium().getFirstStatementInScriptOrNullIfNone(content, eventNumber);
+		LiveCaosStatement first = world.getScriptorium().getFirstStatementInScriptOrNullIfNone(content, eventNumber);
 		
 		if (first != null)
 		{
@@ -257,7 +259,7 @@ implements iAgentVM
 	public void _message(Object from, int eventNumber, boolean deferredEventNumberLookup, LiveCaosStatement first, boolean inst, boolean lock, Object[] params, UnaryProcedure<EventScriptTerminationType> callbackOnCompletion, @Nonnull AgentMessageSendingConflictResolution conflictResolution)
 	{
 		if (first == null)
-			first = engine.getWorld().getScriptorium().getFirstStatementInScriptOrNullIfNone(content, eventNumber);
+			first = world.getScriptorium().getFirstStatementInScriptOrNullIfNone(content, eventNumber);
 		
 		if (first != null)
 		{
@@ -331,7 +333,7 @@ implements iAgentVM
 				newState.waitState = null;
 				newState.callbackOnCompletion = callbackOnCompletion;
 				
-				newState.currentEventScriptContext = new SimpleCaosExecutionContext(params, from, this, engine.getWorld(), engine);
+				newState.currentEventScriptContext = new SimpleCaosExecutionContext(params, from, this, world, engine);
 				newState.currentEventScriptContext.setINST(inst);
 				
 				this.currentExecutionState = newState;

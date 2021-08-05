@@ -1,6 +1,7 @@
 package rebound.apps.caoticdreams.engine;
 
 import rebound.apps.caoticdreams.caos.library.content.iEngine;
+import rebound.apps.caoticdreams.caos.library.content.iWorld;
 import rebound.apps.caoticdreams.caos.library.core.CaosNamedVariableBank;
 import rebound.apps.caoticdreams.engine.content.CDWorld;
 import rebound.apps.caoticdreams.engine.physics.iCDPhysicsEngine;
@@ -18,12 +19,19 @@ public class CDEngine
 implements iEngine
 {
 	protected iCDPhysicsEngine physicsEngine;
-	protected CDWorld world;
+	protected CDWorld currentWorld;
 	protected CaosNamedVariableBank eameVariables = new CaosNamedVariableBank();
+	protected Runnable closeWindowAndShutdown;
+	
+	public void tick()
+	{
+		tickPhysics();
+		tickAgentVMs();
+	}
 	
 	public void tickPhysics()
 	{
-		world.getAllAgents(agent ->
+		currentWorld.getAllAgents(agent ->
 		{
 			physicsEngine.tickObject(agent.getContent());
 			return ContinueSignal.Continue;
@@ -32,7 +40,7 @@ implements iEngine
 	
 	public void tickAgentVMs()
 	{
-		world.getAllAgents(agent ->
+		currentWorld.getAllAgents(agent ->
 		{
 			agent.tickCaos();
 			return ContinueSignal.Continue;
@@ -51,13 +59,80 @@ implements iEngine
 	
 	
 	
+	
+	
+	
+	
+	public void userInputMouseButtonStateChanged(int buttonIndex, boolean newState)
+	{
+		//TODO
+	}
+	
+	public void userInputMousePresenceStateChanged(boolean newState)
+	{
+		//TODO
+	}
+	
+	public void userInputKeyStateChanged(int keyCode, boolean newState)
+	{
+		//TODO
+	}
+	
+	public void userInputFocusAndKeyboardStateChanged(boolean newState)
+	{
+		//TODO
+	}
+	
+	public void userInputWindowCloseClicked()
+	{
+		//TODO
+	}
+	
+	
+	
+	
+	
+	
+	
+	@Override
+	public void loadWorld(String uid) throws Throwable
+	{
+		//TODO
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public iCDPhysicsEngine getPhysicsEngine()
 	{
 		return physicsEngine;
 	}
 	
-	public CDWorld getWorld()
+	@Override
+	public CDWorld getCurrentWorld()
 	{
-		return world;
+		return currentWorld;
+	}
+	
+	public Runnable getCloseWindowAndShutdown()
+	{
+		return closeWindowAndShutdown;
+	}
+	
+	public void setCloseWindowAndShutdown(Runnable closeWindowAndShutdown)
+	{
+		this.closeWindowAndShutdown = closeWindowAndShutdown;
 	}
 }

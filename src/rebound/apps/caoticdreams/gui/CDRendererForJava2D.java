@@ -1,7 +1,9 @@
 package rebound.apps.caoticdreams.gui;
 
+import static rebound.math.SmallFloatMathUtilities.*;
 import static rebound.math.geom2d.GeometryUtilities2D.*;
 import static rebound.util.BasicExceptionUtilities.*;
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.geom.Dimension2D;
 import java.awt.geom.Point2D;
@@ -20,6 +22,14 @@ public class CDRendererForJava2D
 {
 	protected RenderableWorld world;
 	
+	
+	public void renderWithBlackBackground(Graphics2D g, Camera camera, double widthOfScreen, double heightOfScreen)
+	{
+		g.setColor(Color.black);
+		g.fillRect(0, 0, roundCeilS32(widthOfScreen), roundCeilS32(heightOfScreen));
+		
+		render((Graphics2D)g, camera, widthOfScreen, heightOfScreen);
+	}
 	
 	public void render(Graphics2D g, Camera camera, double widthOfScreen, double heightOfScreen)
 	{
