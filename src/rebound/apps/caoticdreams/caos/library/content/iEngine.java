@@ -1,5 +1,6 @@
 package rebound.apps.caoticdreams.caos.library.content;
 
+import java.util.Map;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import rebound.annotations.semantic.temporal.ConstantReturnValue;
@@ -18,8 +19,11 @@ public interface iEngine
 	public void setGameName(String newValue);
 	
 	
-	public Object getEngineVariable(Object name);
-	public void setEngineVariable(Object name, Object value);
+	/**
+	 * See {@link CDApiUtilities#getNamedVariable(Map, Object)} / {@link CDApiUtilities#setNamedVariable(Map, Object, Object)} for how to how to access it in a caotic way (namely imagining infinite variables with value integer-0 instead of absent or null-valued)
+	 */
+	@ConstantReturnValue
+	public @Nonnull Map<Object, Object> getEngineVariables();
 	
 	
 	public void quit();

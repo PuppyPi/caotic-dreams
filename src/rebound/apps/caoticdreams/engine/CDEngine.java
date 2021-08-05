@@ -1,12 +1,12 @@
 package rebound.apps.caoticdreams.engine;
 
+import java.util.HashMap;
+import java.util.Map;
 import rebound.apps.caoticdreams.caos.library.content.iEngine;
-import rebound.apps.caoticdreams.caos.library.content.iWorld;
-import rebound.apps.caoticdreams.caos.library.core.CaosNamedVariableBank;
 import rebound.apps.caoticdreams.engine.content.CDWorld;
 import rebound.apps.caoticdreams.engine.physics.iCDPhysicsEngine;
+import rebound.apps.caoticdreams.gui.BootstrappingGUIXD;
 import rebound.util.functional.ContinueSignal;
-
 
 /**
  * The Engine is to the World kind of like the AgentVM is to the AgentContent :3
@@ -20,8 +20,10 @@ implements iEngine
 {
 	protected iCDPhysicsEngine physicsEngine;
 	protected CDWorld currentWorld;
-	protected CaosNamedVariableBank eameVariables = new CaosNamedVariableBank();
+	protected Map<Object, Object> eameVariables;
 	protected Runnable closeWindowAndShutdown;
+	
+	
 	
 	public void tick()
 	{
@@ -98,8 +100,8 @@ implements iEngine
 	public void loadWorld(String uid) throws Throwable
 	{
 		//TODO
-		
-		
+		currentWorld = new CDWorld();
+		BootstrappingGUIXD.populateWorldWithSomething(currentWorld);
 	}
 	
 	
@@ -118,6 +120,18 @@ implements iEngine
 	public iCDPhysicsEngine getPhysicsEngine()
 	{
 		return physicsEngine;
+	}
+	
+	@Override
+	public Map<Object, Object> getEngineVariables()
+	{
+		Map<Object, Object> m = eameVariables;
+		if (m == null)
+		{
+			m = new HashMap<>();
+			eameVariables = m;
+		}
+		return eameVariables;
 	}
 	
 	@Override

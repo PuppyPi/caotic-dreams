@@ -18,6 +18,7 @@ import javax.swing.JFrame;
 import rebound.apps.caoticdreams.caos.library.content.iEngine;
 import rebound.apps.caoticdreams.caos.library.content.iWorld;
 import rebound.apps.caoticdreams.engine.CDEngine;
+import rebound.apps.caoticdreams.engine.content.CDMetaroom;
 import rebound.apps.caoticdreams.engine.content.CDWorld;
 import rebound.concurrency.threads.GenericEventQueue;
 import rebound.concurrency.threads.SimpleEventQueue;
@@ -54,7 +55,8 @@ extends JFrame
 		
 		engine.setCloseWindowAndShutdown(() ->
 		{
-			
+			window.dispose();
+			System.exit(0);
 		});
 		
 		setupInputListening(window, engine);
@@ -63,6 +65,7 @@ extends JFrame
 		
 		window.setVisible(true);
 	}
+	
 	
 	
 	
@@ -100,6 +103,7 @@ extends JFrame
 			}
 		});
 		
+		
 		window.addKeyListener(new KeyListener()
 		{
 			@Override
@@ -122,6 +126,7 @@ extends JFrame
 			}
 		});
 		
+		
 		window.addFocusListener(new FocusListener()
 		{
 			@Override
@@ -136,6 +141,7 @@ extends JFrame
 				engine.userInputFocusAndKeyboardStateChanged(true);
 			}
 		});
+		
 		
 		window.addWindowListener(new WindowListener()
 		{
@@ -189,6 +195,7 @@ extends JFrame
 	
 	public static void populateWorldWithSomething(iWorld world)
 	{
-		
+		CDMetaroom metaroom = new CDMetaroom();
+		//TODO :D
 	}
 }

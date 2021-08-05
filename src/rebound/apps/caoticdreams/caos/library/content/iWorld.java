@@ -1,5 +1,8 @@
 package rebound.apps.caoticdreams.caos.library.content;
 
+import java.util.Map;
+import javax.annotation.Nonnull;
+import rebound.annotations.semantic.temporal.ConstantReturnValue;
 import rebound.apps.caoticdreams.caos.library.core.AgentMessageSendingConflictResolution;
 import rebound.apps.caoticdreams.caos.library.core.AgentMessageSendingConflictResolution.AgentMessageSendingConflictResolutionOverwriteEntirety;
 import rebound.exceptions.AlreadyExistsException;
@@ -18,8 +21,12 @@ public interface iWorld
 	
 	
 	
-	public Object getGameVariable(Object key);
-	public void setGameVariable(Object key, Object value);
+	/**
+	 * See {@link CDApiUtilities#getNamedVariable(Map, Object)} / {@link CDApiUtilities#setNamedVariable(Map, Object, Object)} for how to how to access it in a caotic way (namely imagining infinite variables with value integer-0 instead of absent or null-valued)
+	 */
+	@ConstantReturnValue
+	public @Nonnull Map<Object, Object> getGameVariables();
+	
 	
 	/**
 	 * The standard is {@link AgentMessageSendingConflictResolutionOverwriteEntirety}

@@ -5,13 +5,14 @@ import static rebound.testing.WidespreadTestingUtilities.*;
 import java.awt.geom.Rectangle2D;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import rebound.annotations.semantic.allowedoperations.ReadonlyValue;
 import rebound.apps.caoticdreams.caos.library.content.iWorld;
-import rebound.apps.caoticdreams.caos.library.core.CaosNamedVariableBank;
 import rebound.apps.caoticdreams.engine.AgentVM;
 import rebound.apps.caoticdreams.engine.Scriptorium;
 import rebound.apps.caoticdreams.engine.mapalgorithms.MapTracker;
@@ -33,10 +34,10 @@ implements iWorld, RenderableWorld, MapAsbPhysicsEngine
 {
 	protected MapTracker<CDMetaroom> metarooms;
 	protected MapTracker<AgentVM> worldAgents;
-	protected Set<AgentVM> worldlessAgents = new HashSet<>();  //always unrendered and unphysicked X3
-	protected CaosNamedVariableBank gameVariables = new CaosNamedVariableBank();
-	
 	protected Scriptorium scriptorium;
+	protected Set<AgentVM> worldlessAgents = new HashSet<>();  //always unrendered and unphysicked X3
+	protected Map<Object, Object> gameVariables;
+	
 	
 	
 	public Scriptorium getScriptorium()
@@ -122,5 +123,23 @@ implements iWorld, RenderableWorld, MapAsbPhysicsEngine
 					return;
 			}
 		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	@Override
+	public Map<Object, Object> getGameVariables()
+	{
+		Map<Object, Object> m = gameVariables;
+		if (m == null)
+		{
+			m = new HashMap<>();
+			gameVariables = m;
+		}
+		return gameVariables;
 	}
 }
