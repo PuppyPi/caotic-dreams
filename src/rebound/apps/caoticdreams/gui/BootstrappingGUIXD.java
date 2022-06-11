@@ -15,7 +15,6 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import javax.swing.JFrame;
-import rebound.apps.caoticdreams.caos.library.content.iEngine;
 import rebound.apps.caoticdreams.caos.library.content.iWorld;
 import rebound.apps.caoticdreams.engine.CDEngine;
 import rebound.apps.caoticdreams.engine.content.CDMetaroom;
