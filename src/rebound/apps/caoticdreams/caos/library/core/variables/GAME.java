@@ -6,11 +6,11 @@ public class GAME
 {
 	public static Object get(CaosExecutionContext context, String variableName)
 	{
-		return context.getWorld().getGameVariable(variableName);
+		return context.getWorld().getGameVariables().get(variableName);
 	}
 	
 	public static void set(CaosExecutionContext context, String variableName, Object value)
 	{
-		context.getWorld().setGameVariable(variableName, value);
+		context.getWorld().getGameVariables().put(variableName, value);
 	}
 }

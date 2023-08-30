@@ -46,7 +46,7 @@ public class CALT
 					throw newUnexpectedHardcodedEnumValueExceptionOrNullPointerException(t);
 			}
 			
-			context.getOWNR().getContent().setOVxx(returnValueVariable, v);
+			context.getOWNR().getContent().getObjectVariables().set(returnValueVariable, v);
 		};
 		
 		context.getTARG().message(context.getOWNR(), eventNumber, false, context.isINST(), context.getOWNR().isLOCKed(), new Object[]{p1, p2}, callbackOnCompletion, AgentMessageSendingConflictResolutionWaitForCurrent.I);
