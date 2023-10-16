@@ -1,0 +1,4 @@
+• _GT_ and friends as a normal function that outputs caos boolean (0=false, 1=true) like GT is for syntactically-restricted actual-booleans!
+• NAM? to check if a name variable exists and is actually 0 or not!
+• make sure TMVT works on what *would* happen if an agent wasn't floating or held
+• read EMIT
