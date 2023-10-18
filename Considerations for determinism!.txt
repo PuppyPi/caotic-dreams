@@ -1,0 +1,16 @@
+• Creatures Monikers
+• seed of the pseudorandom number generator used that determines every random thing EXCEPT for monikers!
+	RAND, RTAR, etc.
+	Creature brain things
+	Biochemistry things??
+	etc.
+• Order of variables (esp. Agents!!) in NAME variables regarding NAMN!  (And same for GAME/GAMN and EAME/EAMN if those ever support non-strings X3 )
+	• This is also a thing regarding inter-implementation compatibility / consistency :33
+• RTIM and related out-of-game time things ofc!
+• MSEC
+• PACE/framerate!
+• MEMX command!!!
+• UFOS
+• user input!
+• window size!
+• _CD_ functions that return a value XD

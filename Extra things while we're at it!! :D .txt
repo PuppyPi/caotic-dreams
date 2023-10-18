@@ -1,4 +1,16 @@
 • _GT_ and friends as a normal function that outputs caos boolean (0=false, 1=true) like GT is for syntactically-restricted actual-booleans!
+!• parenthesessssssss innnnnnn doif/elifffffff! \:D/
 • NAM? to check if a name variable exists and is actually 0 or not!
 • make sure TMVT works on what *would* happen if an agent wasn't floating or held
 • read EMIT
+• make sure ALPH works on parts of compound agents!
+• check TINT rotation and swap 0 and 255 graphics glitches
+• search caos docs for "todo", "currently", "only"! :D
+•• C2D display engine thingsssss!  Mirrored and Zoomed and Rotated(???) sprits!
+• Presence physics thingssssss!
+• Make sure it costs no extra resources to TINT or ALPH things! :D
+• The 8 RandR transforms, not just MIRA! \:DD/
+• Support as many error messages as possible being configured to be done with in-game agent UI's!! \:D/
+• Bring back CD Player things but using an mp3 file or something :3
+	Let it show the frequencies though still, for CAOS agents that show bars or things! :DD
+• RTIM but with milliseconds! :D

@@ -129,7 +129,8 @@
 	
 	+ Adding REQ's helps with the type-inference optimization of the compiler (which isn't implemented yet XD'' )
 
-
+• Infinite vaXX variables, not just up to 99 XD  \:D/
+	Only the ones used will actually be allocated anyway XD ^w^
 
 
 
