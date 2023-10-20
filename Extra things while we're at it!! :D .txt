@@ -14,3 +14,5 @@
 • Bring back CD Player things but using an mp3 file or something :3
 	Let it show the frequencies though still, for CAOS agents that show bars or things! :DD
 • RTIM but with milliseconds! :D
+• No memory limit to rooms or metarooms!  Certainly not merely 5000!
+	https://discord.com/channels/915764323580805140/915764324071510089/1163975521068130314
