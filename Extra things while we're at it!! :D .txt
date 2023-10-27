@@ -16,3 +16,13 @@
 • RTIM but with milliseconds! :D
 • No memory limit to rooms or metarooms!  Certainly not merely 5000!
 	https://discord.com/channels/915764323580805140/915764324071510089/1163975521068130314
+• Keep agent ports connected even when they're held outside the room system! (like in the corners/edges of metarooms LIKE WHEN YOU PICK ANYTHING UP IN THE DS AGENT INJECTOR ROOM DLKJDFLDSJF)
+• *A world coordinate indirection level!!* 8>
+	Like in machine code world, the Translation Lookaside Buffer creating the concept of "virtual memory", or WebAssembly's address space!  It takes addresses and completely converts them back and forth, creating an entirely different perceptual address space! 8>
+	Then we could finally fix the "metarooms colliding" problem by having each metaroom be its own map, and legacy agents that use world coordinates without a metaroom ID with new commands, to switch which metaroom they're in (or which don't use GAME "CreatorX"/Y) can rely on this Virtual Address Space for world coordinates that is completely customizable *per agent!!* 8>   It only adds/subtracts values (translation), though, not multiplies/divides (zooming/scaling), or mixes x and y together (skewing/shearing/rotating), much less anything nonlinear X33 )
+	+ I mean, every agent can have its own World Map for crossing metarooms with flat coordinates but that doesn't mean there has to be a *unique* one for each agent XD   Like, all Norngarden agents could share the same one X3, and all Original C3 agents could share another one, and Original DS, and etc.c.
+		It is only necessary for agents that need to cross metaroom boundaries using flat world coordinates anyway!
+		Agents that only move within the same metaroom can just have a pair of X/Y numbers that *every* MVTO/MVSF/etc. they do is translated by and only ever is in the same metaroom/map no matter what, and that's extremely efficient (just 8 bytes per agent and nanoseconds of CPU time added to each MVTO/MVSF/POSX/POSY X3 )
+	+ And agents that don't even use absolute coordinates at all, but just velx/vely and such or interact with any coordinates in any way don't need to worry about *aaaaaaaanything*! :D
+	+ If we need to, we can also special-case {mvsf/mvto game "CreatorX" game "CreatorY"} as a snippet of code and change that, for the *huge* XD number of agents that only interact with map coordinates in that way at all XD
+• (((Make the easter egg say "Entering Fishbowl Space" :}}}}}} )))
