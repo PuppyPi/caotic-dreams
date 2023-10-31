@@ -26,3 +26,10 @@
 	+ And agents that don't even use absolute coordinates at all, but just velx/vely and such or interact with any coordinates in any way don't need to worry about *aaaaaaaanything*! :D
 	+ If we need to, we can also special-case {mvsf/mvto game "CreatorX" game "CreatorY"} as a snippet of code and change that, for the *huge* XD number of agents that only interact with map coordinates in that way at all XD
 • (((Make the easter egg say "Entering Fishbowl Space" :}}}}}} )))
+• Don't segfault the engine when NUM_VALUES is zero in PAT: GRPH XDD
+• Removing a metaroom should remove its CA links and rooms and everything in it!!
+• Structured Port Data!! :DD   The outputter asks the inputter what structure of data it takes, and sends structured data to it 8>
+	(eg, using like, TimelessData or something as the schema language! :D )
+	• Then an agent could be made to connect to an input port and show it to the user! :D
+	• Multiple schemas are allowed, so "just activate" (Unit Type) can be supported for simple outputters :>
+• More consistent and well-defined constructor script semantics
